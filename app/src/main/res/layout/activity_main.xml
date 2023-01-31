@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#E1E3E5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bleListView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btnScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扫描"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/bleListView" />
+    <Button
+        android:id="@+id/btnDisconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_marginStart="20dp"
+        android:text="断开连接"
+        android:enabled="false"
+        app:layout_constraintStart_toEndOf="@id/btnScan"
+        app:layout_constraintTop_toTopOf="@+id/btnScan" />
+
+    <TextView
+        android:id="@+id/textViewMac"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="mac地址"
+        android:text="A1:E0:12:34:66:0B"
+        app:layout_constraintStart_toStartOf="@+id/btnScan"
+        app:layout_constraintTop_toBottomOf="@+id/goTestPage" />
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="连接"
+        app:layout_constraintBottom_toBottomOf="@id/textViewMac"
+        app:layout_constraintStart_toEndOf="@+id/textViewMac"
+        app:layout_constraintTop_toTopOf="@+id/textViewMac" />
+    <Button
+        android:id="@+id/goTestPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="测试基本API"
+        android:enabled="false"
+        app:layout_constraintStart_toStartOf="@+id/btnScan"
+        app:layout_constraintTop_toBottomOf="@+id/btnScan" />
+    <Button
+        android:id="@+id/exportExl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="导出Excel"
+        android:enabled="false"
+        app:layout_constraintStart_toEndOf="@+id/goTestPage"
+        app:layout_constraintTop_toTopOf="@+id/goTestPage" />
+    <Button
+        android:id="@+id/clearRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="清空数据"
+        android:enabled="false"
+        app:layout_constraintStart_toEndOf="@+id/btnDisconnect"
+        app:layout_constraintTop_toTopOf="@+id/btnDisconnect" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保持屏幕常亮"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/goTestPage"
+        app:layout_constraintTop_toBottomOf="@id/textViewMac"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

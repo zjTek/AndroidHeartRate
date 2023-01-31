@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/logView"
+        android:layout_width="0dp"
+        android:scrollbars="vertical"
+        android:layout_height="220dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/btnListView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logView" />
+    <EditText
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnListView"
+        android:layout_marginTop="10dp"
+        android:id="@+id/thresholdTxtView"
+        android:hint="设置阈值"
+        android:layout_width="100dp"
+        android:layout_height="40dp"/>
+    <Button
+        app:layout_constraintStart_toEndOf ="@+id/thresholdTxtView"
+        app:layout_constraintTop_toTopOf="@+id/thresholdTxtView"
+        android:id="@+id/sendThreshold"
+        android:text="设置"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
