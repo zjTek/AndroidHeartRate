@@ -38,7 +38,6 @@
         android:padding="10dp"
         android:layout_marginTop="20dp"
         android:hint="mac地址"
-        android:text="A1:E0:12:34:66:0B"
         app:layout_constraintStart_toStartOf="@+id/btnScan"
         app:layout_constraintTop_toBottomOf="@+id/goTestPage" />
 
