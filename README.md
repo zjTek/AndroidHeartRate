@@ -47,6 +47,8 @@ Android Bluetooth Low Energy
 | 主动读特征            |   readCharacteristicValue(characteristicUuid: String)                         |     ✅  | 
 | 主动设置特征监听      |   setCharacteristicNotification(characteristicUuid: String, enabled: Boolean)           |     ✅  | 
 | 主动写特征           |   writeToBle(characteristicUuid: String, cmd: ByteArray?)                  |     ✅  | 
+| 获取历史数据           |   ------                                    |     ❌  | 
+| 设置心率区间          |   -------------                            |     ❌  | 
 - #### 基本接口
 
     ``` kotlin
