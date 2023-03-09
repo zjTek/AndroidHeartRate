@@ -18,7 +18,35 @@ Android Bluetooth Low Energy
         FBKBleCallBack 与 FBKBasicInfoCallBack 只能设置一次，多次设置会覆盖
         FBKHearRateCallBack 可以设置多次，退出相关页面后，记得调用removeHeartRateCallBack
 
-
+- #### 接口列表
+   
+#### 接口列表
+| 功能名称        | 方法    |  支持状态  |
+| --------          | -----:   | :----: |
+| 心率值连接后自动返回        | 需要注册setHeartRateCallBack                    |      ✅    |
+| 扫描设备        | startScan(timeOut: Long? = 5000)                     |      ✅    |
+| 停止扫描         |   stopScan()                                       |     ✅  | 
+| 获取已连接设备         |   getConnectedDevice(uuid:[UUID])                    |     ✅  | 
+| 通过device对象连接设备 |   connectBluetooth(bluetoothDevice: BluetoothDevice?)        |     ✅  | 
+| 通过macAdrres连接设备   |   connectBluetooth(macAddress: String?)                  |     ✅  | 
+| 断开设备             |   disconnectBle()                                      |     ✅  | 
+| 注册事件监听          |   registerBleListenerReceiver()                       |   ✅    |
+| 取消事件监听          |   unregisterBleListenerReceiver()                     |     ✅  | 
+| 获取设备电量          |   readDeviceBatteryPower()                            |     ✅  | 
+| 获取厂商信息          |  readManufacturerName()                               |     ✅  | 
+| 获取ModelNum         |   readModelString()                                    |     ✅  | 
+| 获取硬件版本          |  readHardwareVersion()                                   |     ✅  | 
+| 获取软件版本          |   readSoftwareVersion()                                   |     ✅  | 
+| 获取固件版本          |   readFirmwareVersion()                                    |     ✅  | 
+| 获取系统ID           |   readSystemId()                                    |     ✅  | 
+| 设置心率最大阈值       |   setDeviceThreshold(max: Int)                         |     ✅  | 
+| 获取序列号            |   getDeviceSerial()                                      |     ❌  | 
+| 获取步频              |   getDeviceStepFrequency()                              |     ❌  | 
+| 获取实时血氧           |   getRealTimeOxygen()                                     |     ❌  | 
+| 同步时间              |   syncTime()                                              |     ✅  | 
+| 主动读特征            |   readCharacteristicValue(characteristicUuid: String)                         |     ✅  | 
+| 主动设置特征监听      |   setCharacteristicNotification(characteristicUuid: String, enabled: Boolean)           |     ✅  | 
+| 主动写特征           |   writeToBle(characteristicUuid: String, cmd: ByteArray?)                  |     ✅  | 
 - #### 基本接口
 
     ``` kotlin
