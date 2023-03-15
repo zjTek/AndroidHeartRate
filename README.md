@@ -48,7 +48,15 @@ Android Bluetooth Low Energy
 | 主动设置特征监听      |   setCharacteristicNotification(characteristicUuid: String, enabled: Boolean)           |     ✅  | 
 | 主动写特征           |   writeToBle(characteristicUuid: String, cmd: ByteArray?)                  |     ✅  | 
 | 获取历史数据           |   ------                                    |     ❌  | 
-| 设置心率区间          |   -------------                            |     ❌  | 
+| <font color="red">新增部分 </font>   |       |      |  
+| 设置心率区间         |  setDeviceThreshold(min: UInt8, max: UInt8) |     ✅ | 
+| ota接口         |  startOTA(data: ByteArray?) 状态监听接口(原BleCallBack中)：bleOtaStauts(status: OtaStatus, progress: Float)；bleOtaError(error: OtaError)|     ✅ | 
+| 接收手环按钮切换值         | armBandPlayStatusChange（被动） |     ✅ | 
+| 长按5s接收解绑指令         | armBandUnbind（被动） |     ✅ | 
+| 恢复出厂设置         | resetBand() |     ❌ | 
+| 获取设备充电状态         | queryBatteryStatus() |     ❌ | 
+| 设备充电状态回调         | batteryStatus() |     ❌ | 
+
 - #### 基本接口
 
     ``` kotlin
