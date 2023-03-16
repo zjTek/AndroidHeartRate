@@ -23,15 +23,15 @@ Android Bluetooth Low Energy
 #### 接口列表
 | 功能名称        | 方法    |  支持状态  |固件支持版本|
 | --------          | :-----:   | :----: | :----:|
-| 心率值连接后自动返回        | 需要注册setHeartRateCallBack                    |      ✅    |>= v1.1|
-| 扫描设备        | startScan(timeOut: Long? = 5000)                     |      ✅    |>= v1.1|
-| 停止扫描         |   stopScan()                                       |     ✅  | >= v1.1|
-| 获取已连接设备         |   getConnectedDevice(uuid:[UUID])                    |     ✅  | >= v1.1|
-| 通过device对象连接设备 |   connectBluetooth(bluetoothDevice: BluetoothDevice?)        |     ✅  | >= v1.1|
-| 通过macAdrres连接设备   |   connectBluetooth(macAddress: String?)                  |     ✅  | >= v1.1|
-| 断开设备             |   disconnectBle()                                      |     ✅  | >= v1.1|
-| 注册事件监听          |   registerBleListenerReceiver()                       |   ✅    |>= v1.1|
-| 取消事件监听          |   unregisterBleListenerReceiver()                     |     ✅  | >= v1.1|
+| 心率值连接后自动返回        | 需要注册setHeartRateCallBack                    |      ✅    |all|
+| 扫描设备        | startScan(timeOut: Long? = 5000)                     |      ✅    |all|
+| 停止扫描         |   stopScan()                                       |     ✅  | all|
+| 获取已连接设备         |   getConnectedDevice(uuid:[UUID])                    |     ✅  |all|
+| 通过device对象连接设备 |   connectBluetooth(bluetoothDevice: BluetoothDevice?)        |     ✅  | all|
+| 通过macAdrres连接设备   |   connectBluetooth(macAddress: String?)                  |     ✅  | all|
+| 断开设备             |   disconnectBle()                                      |     ✅  | all|
+| 注册事件监听          |   registerBleListenerReceiver()                       |   ✅    |all|
+| 取消事件监听          |   unregisterBleListenerReceiver()                     |     ✅  | all|
 | 获取设备电量          |   readDeviceBatteryPower()                            |     ✅  | >= v1.1|
 | 获取厂商信息          |  readManufacturerName()                               |     ✅  | >= v1.1|
 | 获取ModelNum         |   readModelString()                                    |     ✅  | >= v1.1|
