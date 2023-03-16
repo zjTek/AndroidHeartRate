@@ -21,41 +21,41 @@ Android Bluetooth Low Energy
 - #### 接口列表
    
 #### 接口列表
-| 功能名称        | 方法    |  支持状态  |
-| --------          | -----:   | :----: |
-| 心率值连接后自动返回        | 需要注册setHeartRateCallBack                    |      ✅    |
-| 扫描设备        | startScan(timeOut: Long? = 5000)                     |      ✅    |
-| 停止扫描         |   stopScan()                                       |     ✅  | 
-| 获取已连接设备         |   getConnectedDevice(uuid:[UUID])                    |     ✅  | 
-| 通过device对象连接设备 |   connectBluetooth(bluetoothDevice: BluetoothDevice?)        |     ✅  | 
-| 通过macAdrres连接设备   |   connectBluetooth(macAddress: String?)                  |     ✅  | 
-| 断开设备             |   disconnectBle()                                      |     ✅  | 
-| 注册事件监听          |   registerBleListenerReceiver()                       |   ✅    |
-| 取消事件监听          |   unregisterBleListenerReceiver()                     |     ✅  | 
-| 获取设备电量          |   readDeviceBatteryPower()                            |     ✅  | 
-| 获取厂商信息          |  readManufacturerName()                               |     ✅  | 
-| 获取ModelNum         |   readModelString()                                    |     ✅  | 
-| 获取硬件版本          |  readHardwareVersion()                                   |     ✅  | 
-| 获取软件版本          |   readSoftwareVersion()                                   |     ✅  | 
-| 获取固件版本          |   readFirmwareVersion()                                    |     ✅  | 
-| 获取系统ID           |   readSystemId()                                    |     ✅  | 
-| 设置心率最大阈值       |   setDeviceThreshold(max: Int)                         |     ✅  | 
-| 获取序列号            |   getDeviceSerial()                                      |     ❌  | 
-| 获取步频              |   getDeviceStepFrequency()                              |     ❌  | 
-| 获取实时血氧           |   getRealTimeOxygen()                                     |     ❌  | 
-| 同步时间              |   syncTime()                                              |     ✅  | 
-| 主动读特征            |   readCharacteristicValue(characteristicUuid: String)                         |     ✅  | 
-| 主动设置特征监听      |   setCharacteristicNotification(characteristicUuid: String, enabled: Boolean)           |     ✅  | 
-| 主动写特征           |   writeToBle(characteristicUuid: String, cmd: ByteArray?)                  |     ✅  | 
-| 获取历史数据           |   ------                                    |     ❌  | 
+| 功能名称        | 方法    |  支持状态  |固件支持版本|
+| --------          | :-----:   | :----: | :----:|
+| 心率值连接后自动返回        | 需要注册setHeartRateCallBack                    |      ✅    |>= v1.1|
+| 扫描设备        | startScan(timeOut: Long? = 5000)                     |      ✅    |>= v1.1|
+| 停止扫描         |   stopScan()                                       |     ✅  | >= v1.1|
+| 获取已连接设备         |   getConnectedDevice(uuid:[UUID])                    |     ✅  | >= v1.1|
+| 通过device对象连接设备 |   connectBluetooth(bluetoothDevice: BluetoothDevice?)        |     ✅  | >= v1.1|
+| 通过macAdrres连接设备   |   connectBluetooth(macAddress: String?)                  |     ✅  | >= v1.1|
+| 断开设备             |   disconnectBle()                                      |     ✅  | >= v1.1|
+| 注册事件监听          |   registerBleListenerReceiver()                       |   ✅    |>= v1.1|
+| 取消事件监听          |   unregisterBleListenerReceiver()                     |     ✅  | >= v1.1|
+| 获取设备电量          |   readDeviceBatteryPower()                            |     ✅  | >= v1.1|
+| 获取厂商信息          |  readManufacturerName()                               |     ✅  | >= v1.1|
+| 获取ModelNum         |   readModelString()                                    |     ✅  | >= v1.1|
+| 获取硬件版本          |  readHardwareVersion()                                   |     ✅  | >= v1.1|
+| 获取软件版本          |   readSoftwareVersion()                                   |     ✅  | >= v1.1|
+| 获取固件版本          |   readFirmwareVersion()                                    |     ✅  | >= v1.1|
+| 获取系统ID           |   readSystemId()                                    |     ✅  | >= v1.1|
+| 设置心率最大阈值       |   setDeviceThreshold(max: Int)                         |     ✅  | >= v1.1|
+| 获取序列号            |   getDeviceSerial()                                      |     ❌  | ---|
+| 获取步频              |   getDeviceStepFrequency()                              |     ❌  | ---|
+| 获取实时血氧           |   getRealTimeOxygen()                                     |     ❌  |---|
+| 同步时间              |   syncTime()                                              |     ✅  | >= v1.1|
+| 主动读特征            |   readCharacteristicValue(characteristicUuid: String)                         |     ✅  | >= v1.1|
+| 主动设置特征监听      |   setCharacteristicNotification(characteristicUuid: String, enabled: Boolean)           |     ✅  | >= v1.1|
+| 主动写特征           |   writeToBle(characteristicUuid: String, cmd: ByteArray?)                  |     ✅  | >= v1.1|
+| 获取历史数据           |   ------                                    |     ❌  | ---|
 | <font color="red">新增部分 </font>   |       |      |  
-| 设置心率区间         |  setDeviceThreshold(min: UInt8, max: UInt8) |     ✅ | 
-| ota接口         |  startOTA(data: ByteArray?) 状态监听接口(原BleCallBack中)：bleOtaStauts(status: OtaStatus, progress: Float)；bleOtaError(error: OtaError)|     ✅ | 
-| 接收手环按钮切换值         | armBandPlayStatusChange（被动） |     ✅ | 
-| 长按5s接收解绑指令         | armBandUnbind（被动） |     ✅ | 
-| 恢复出厂设置         | resetBand() |     ❌ | 
-| 获取设备充电状态         | queryBatteryStatus() |     ❌ | 
-| 设备充电状态回调         | batteryStatus() |     ❌ | 
+| 设置心率区间         |  setDeviceThreshold(min: UInt8, max: UInt8) |     ✅ | >= v1.1|
+| ota接口         |  startOTA(data: ByteArray?) 状态监听接口(原BleCallBack中)：bleOtaStauts(status: OtaStatus, progress: Float)；bleOtaError(error: OtaError)|     ✅ | >= v1.1|
+| 接收手环按钮切换值         | armBandPlayStatusChange（被动） |     ✅ | >= v1.1|
+| 长按5s接收解绑指令         | armBandUnbind（被动） |     ✅ | >= v1.2|
+| 恢复出厂设置         | resetBand() |     ❌ | --- |
+| 获取设备充电状态         | queryBatteryStatus() |     ❌ | --- |
+| 设备充电状态回调         | batteryStatus() |     ❌ | --- |
 
 - #### 基本接口
 
