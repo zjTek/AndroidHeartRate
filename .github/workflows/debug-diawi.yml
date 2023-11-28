@@ -63,7 +63,11 @@ jobs:
           secret: ${{ secrets.DING_TAIK_SECRET }}
           template: >-
             {
-              "msgtype": "text",
-              "text": { "content": "Build Finished: See: ${{steps.Upload_APK.outputs.url}}" }
+              "msgtype": "link",
+              "link": {
+                "title": "Android Installer"
+                "text": "Debug version 110 tap link to download"
+                "picUrl": "${{steps.Upload_APK.outputs.qrcode}}"
+                "messageUrl": "${{steps.Upload_APK.outputs.url}}"
+                }
             }
-
