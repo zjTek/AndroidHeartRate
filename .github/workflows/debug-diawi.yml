@@ -60,6 +60,7 @@ jobs:
         with:
           app: DingTalk
           webhook: ${{ secrets.DING_TALK_HOOK }}
+          secret: ${{ secrets.DING_TAIK_SECRET }}
           template: >-
             {
               "msgtype": "text",
