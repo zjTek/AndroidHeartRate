@@ -34,6 +34,9 @@ android {
         viewBinding true
         dataBinding true
     }
+    android.applicationVariants.all { variant ->
+        variant.outputFile = file("$project.buildDir/${defaultConfig.versionName}-${defaultConfig.versionCode}.apk")
+    }
 }
 
 dependencies {
