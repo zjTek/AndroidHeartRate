@@ -2,13 +2,13 @@ name: Send APK to Diawii
 on:
   push:
     branches:
-      - 'master'
+      - 'development/**'
 
 jobs:
 
   apk:
     name: Send APK to Diawii
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
