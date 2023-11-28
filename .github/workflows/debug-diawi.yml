@@ -35,10 +35,22 @@ jobs:
       #   with:
       #     name: app
       #     path: app/build/outputs/apk/debug/app-debug.apk
+      - uses: Tlaster/android-sign@v1
+        name: Sign app APK
+        with:
+          releaseDirectory: |
+            ./app/build/outputs/apk/debug
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          output: ./app/build/debug/signed
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: "30.0.2"
 
       - name: Upload APK to Diawii
         uses: rnkdsh/action-upload-diawi@v1.5.4
         with:
           token: ${{ secrets.DIAWI_TOKEN }}
-          file: ./app/build/outputs/apk/debug/app-debug.apk
+          file: ../app/build/debug/signed/app-debug.apk
           comment: ${{ github.event.head_commit.message }}
