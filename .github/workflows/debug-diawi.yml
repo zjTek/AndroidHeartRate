@@ -23,37 +23,37 @@ jobs:
         run: chmod +x gradlew
       
             # Run Build Project
-      - name: Build gradle project
-        run: ./gradlew build
+      # - name: Build gradle project
+      #   run: ./gradlew build
         
-      - name: Build debug APK
-        run: ./gradlew assembleDebug
+      # - name: Build debug APK
+      #   run: ./gradlew assembleDebug
         
       # - name: Upload APK to Github Artifacts
       #   uses: actions/upload-artifact@v1
       #   with:
       #     name: app
       #     path: app/build/outputs/apk/debug/app-debug.apk
-      - uses: Tlaster/android-sign@v1.2.2
-        name: Sign app APK
-        with:
-          releaseDirectory: |
-            ./app/build/outputs/apk/debug
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          output: ./app/build/debug/signed
-          alias: ${{ secrets.ALIAS }}
-          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
-        env:
-          BUILD_TOOLS_VERSION: "30.0.2"
+      # - uses: Tlaster/android-sign@v1.2.2
+      #   name: Sign app APK
+      #   with:
+      #     releaseDirectory: |
+      #       ./app/build/outputs/apk/debug
+      #     signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+      #     output: ./app/build/debug/signed
+      #     alias: ${{ secrets.ALIAS }}
+      #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+      #     keyPassword: ${{ secrets.KEY_PASSWORD }}
+      #   env:
+      #     BUILD_TOOLS_VERSION: "30.0.2"
 
-      - name: Upload APK to Diawii
-        id: Upload_APK
-        uses: rnkdsh/action-upload-diawi@v1.5.4
-        with:
-          token: ${{ secrets.DIAWI_TOKEN }}
-          file: ./app/build/debug/signed/app-debug-signed.apk
-          comment: ${{ github.event.head_commit.message }}
+      # - name: Upload APK to Diawii
+      #   id: Upload_APK
+      #   uses: rnkdsh/action-upload-diawi@v1.5.4
+      #   with:
+      #     token: ${{ secrets.DIAWI_TOKEN }}
+      #     file: ./app/build/debug/signed/app-debug-signed.apk
+      #     comment: ${{ github.event.head_commit.message }}
                     
       - name: Send Notification
         uses: northwang-lucky/chatbot-webhook-client@v1.1.1
@@ -63,6 +63,6 @@ jobs:
           template: >-
             {
               "msgtype": "text",
-              "text": { "content": ${{steps.Upload_APK.outputs.url}} }
+              "text": { "content": "Build Finished: See: ${{steps.Upload_APK.outputs.url}}" }
             }
 
