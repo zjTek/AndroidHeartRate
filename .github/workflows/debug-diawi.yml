@@ -56,7 +56,7 @@ jobs:
           comment: ${{ github.event.head_commit.message }}
           
       - name: Send Notification
-        uses: northwang-lucky/chatbot-webhook-client@latest
+        uses: northwang-lucky/chatbot-webhook-client@1.1.1
         with:
           app: DingTalk
           webhook: ${{ secrets.DING_TALK_HOOK }}
