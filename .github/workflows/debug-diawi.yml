@@ -9,7 +9,6 @@ jobs:
   build:
     name: Send APK to Diawii
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       
@@ -49,8 +48,21 @@ jobs:
           BUILD_TOOLS_VERSION: "30.0.2"
 
       - name: Upload APK to Diawii
+        id: Upload_APK
         uses: rnkdsh/action-upload-diawi@v1.5.4
         with:
           token: ${{ secrets.DIAWI_TOKEN }}
           file: ./app/build/debug/signed/app-debug-signed.apk
           comment: ${{ github.event.head_commit.message }}
+          
+      - name: Send Notification
+        uses: northwang-lucky/chatbot-webhook-client@latest
+        with:
+          app: DingTalk
+          webhook: ${{ secrets.DING_TALK_HOOK }}
+          template: >-
+            {
+              "msgtype": "text",
+              "text": { "content": ${{steps.Upload_APK.outputs.url}} }
+            }
+
