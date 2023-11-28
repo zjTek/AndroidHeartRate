@@ -65,9 +65,9 @@ jobs:
             {
               "msgtype": "link",
               "link": {
-                "title": "Android Installer"
-                "text": "Debug version 110 tap link to download"
-                "picUrl": "${{steps.Upload_APK.outputs.qrcode}}"
+                "title": "Android Installer",
+                "text": "Debug version 110 tap link to download",
+                "picUrl": "${{steps.Upload_APK.outputs.qrcode}}",
                 "messageUrl": "${{steps.Upload_APK.outputs.url}}"
                 }
             }
