@@ -52,5 +52,5 @@ jobs:
         uses: rnkdsh/action-upload-diawi@v1.5.4
         with:
           token: ${{ secrets.DIAWI_TOKEN }}
-          file: ../app/build/debug/signed/app-debug.apk
+          file: ../app/build/debug/signed/app-debug-signed.apk
           comment: ${{ github.event.head_commit.message }}
